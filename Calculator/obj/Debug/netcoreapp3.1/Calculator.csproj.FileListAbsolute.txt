@@ -17,3 +17,4 @@ C:\Users\krris\source\repos\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calcul
 C:\Users\krris\source\repos\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.dll
 C:\Users\krris\source\repos\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.pdb
 C:\Users\krris\source\repos\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.genruntimeconfig.cache
+C:\Users\krris\source\repos\Calculator\Calculator\obj\Debug\netcoreapp3.1\App.baml

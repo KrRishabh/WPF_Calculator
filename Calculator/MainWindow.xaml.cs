@@ -22,6 +22,8 @@ namespace Calculator
     {
         double lastNumber;
         double firstNumber;
+        SelectedOperator selectedOperator;
+        double result;
         public MainWindow()
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace Calculator
             acButton.Click += AcButton_Click;
             negativeButton.Click += NegativeButton_Click;
             percentageButton.Click += PercentageButton_Click;
+            
         }
 
         private void PercentageButton_Click(object sender, RoutedEventArgs e)
@@ -93,11 +96,52 @@ namespace Calculator
         }
         private void operationButton_Click(object sender, RoutedEventArgs e)
         {
-            if(double.TryParse(resultLabel.Content.ToString(), out firstNumber))
+            if(double.TryParse(resultLabel.Content.ToString(), out lastNumber))
             {
-                lastNumber = 0;
+                
                 resultLabel.Content = "0";
             }
+            if (sender == multiplyButton)
+                selectedOperator = SelectedOperator.Mulitplication;
+            else if (sender == divideButton)
+                selectedOperator = SelectedOperator.Division;
+            else if (sender == plusButton)
+                selectedOperator = SelectedOperator.Addition;
+            else if (sender == minusButton)
+                selectedOperator = SelectedOperator.Substraction;
         }
+
+        private void equalsButton_Click(object sender, RoutedEventArgs e)
+        {
+            double newNumber;
+            if(double.TryParse(resultLabel.Content.ToString(), out newNumber))
+            {
+                switch (selectedOperator)
+                {
+                    case SelectedOperator.Addition:
+                        result = lastNumber + newNumber;
+                        break;
+                    case SelectedOperator.Mulitplication:
+                        result = lastNumber * newNumber;
+                        break;
+                    case SelectedOperator.Division:
+                        result = lastNumber / newNumber;
+                        break;
+                    case SelectedOperator.Substraction:
+                        result = lastNumber - newNumber;
+                        break;
+
+                        
+                }
+                resultLabel.Content = result.ToString();
+            }
+        }
+    }
+    public enum SelectedOperator
+    {
+        Addition,
+        Substraction,
+        Mulitplication,
+        Division
     }
 }
